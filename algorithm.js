@@ -111,13 +111,106 @@
 				}
 				//solucionando el último juego de la tabla se obtiene el ganador del torneo!
 				var champFinal = champ;
-				var winnerTournamet = this.solveGame(champFinal[final_size - 1] , true);
+				var winnerTournamet = this.solveGame(champFinal[final_size - 1], true);
 				var firstSecond = winnerTournamet.split(",");
-				console.log("Second place:" + firstSecond[2] + "," + firstSecond[3] );
+				console.log("Second place:" + firstSecond[2] + "," + firstSecond[3]);
 				console.log("First place: " + firstSecond[0] + "," + firstSecond[1]);
 				return winnerTournamet;
 			},
-			saveHistory: function(){
-				return false;
+			saveHistory: function(data, plGame) {
+				data = data.replace(/\s/g, "");
+				var firstSecond = data.split(",");
+				var first = firstSecond[0].replace(/(")*(\[)*/g, "");
+				var second = firstSecond[2].replace(/(")*(\[)*/g, "");
+
+			/*	var winner1 = new plGame({
+					namePlayer: first,
+					score: 0
+				}).save();
+				var winner2 = new plGame({
+					namePlayer: second,
+					score: 0
+				}).save();*/
+					plGame.findOneAndUpdate({
+					namePlayer: first
+				}, {
+					$inc: {
+						"score": 3
+					}
+				}, function(err, user) {
+					if (err) {
+						throw err;
+					}
+					else {
+						if (!user) {
+							var winner1 = new plGame({
+								namePlayer: first,
+								score: 3
+							}).save();
+						}
+					}
+				});
+				plGame.findOneAndUpdate({
+					namePlayer: second
+				}, {
+					$inc: {
+						"score": 1
+					}
+				}, function(err, user) {
+					if (err) {
+						throw err;
+					}
+					else {
+						if (!user) {
+							var winner1 = new plGame({
+								namePlayer: second,
+								score: 1
+							}).save();
+						}
+					}
+				});
+
+				return true;
+			},
+			//Find 
+			saveToHistory: function(first, second, plGame) {
+				plGame.findOneAndUpdate({
+					namePlayer: first
+				}, {
+					$inc: {
+						"score": 3
+					}
+				}, function(err, user) {
+					if (err) {
+						throw err;
+					}
+					else {
+						if (!user) {
+							var winner1 = new plGame({
+								namePlayer: first,
+								score: 3
+							}).save();
+						}
+					}
+				});
+				plGame.findOneAndUpdate({
+					namePlayer: second
+				}, {
+					$inc: {
+						"score": 1
+					}
+				}, function(err, user) {
+					if (err) {
+						throw err;
+					}
+					else {
+						if (!user) {
+							var winner1 = new plGame({
+								namePlayer: second,
+								score: 1
+							}).save();
+						}
+					}
+				});
 			}
 		};
