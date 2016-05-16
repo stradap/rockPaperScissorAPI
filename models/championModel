@@ -1,0 +1,11 @@
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
+    
+var championModel = new Schema({
+    firstPlace : {type: String},
+    secondPlace : {type : String},
+    tournament : {type : String , default : "test"},
+    date: { type: Date, default: Date.now }
+});
+
+module.exports = mongoose.model('champion', championModel);

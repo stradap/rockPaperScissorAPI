@@ -1,0 +1,9 @@
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
+
+var historyModel = new Schema({
+    namePlayer: String,
+    score : Number
+});
+
+module.exports = mongoose.model('hstGame', historyModel);

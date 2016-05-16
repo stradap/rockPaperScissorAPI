@@ -1,0 +1,16 @@
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
+
+var playerModel = new Schema({
+    players: [{
+        namePlayer: String,
+        move: String
+    }],
+    date: {
+        type: Date,
+        default: Date.now
+    },
+
+});
+
+module.exports = mongoose.model('plGame', playerModel);
