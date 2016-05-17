@@ -212,10 +212,10 @@
 				})
 				.limit(counter)
 				.exec(function(err, users) {
-					users = users.map(function(user) { 
-						return user.namePlayer; 
-						
-					});
+					// users = users.map(function(user) {
+					// 	return user.namePlayer;
+
+					// });
 					if (err) {
 						throw err;
 					}

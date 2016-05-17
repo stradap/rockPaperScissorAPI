@@ -87,7 +87,6 @@ api.get('/api/championship/top/', function(req, res) {
 
 		});
 		var result = data;
-
 		res.send(result);
 	});
 });
