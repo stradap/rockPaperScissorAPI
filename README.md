@@ -12,7 +12,7 @@ This API implement the Rock, Paper, Scissors game.
 Once the server is running, open the project in the shape of 'https://projectname-username.c9.io/'. and use the different methods available.
 
  
-POST -> api/championship/result"
-GET -> api/championship/top
-POST api/championship/new
+1) POST -> api/championship/result".
+2) GET -> api/championship/top.
+3) POST api/championship/new.
 
