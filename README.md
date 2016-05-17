@@ -1,11 +1,11 @@
 This API implement the Rock, Paper, Scissors game.
 
 ## Running the server
-0) Open the console and start the mongodb using the command './mongod' in Cloud9.
+0) Open the console and start the mongodb using the command './mongod'
 
-1) Open `server.js` and start the app by clicking on the "Run" button in the top menu using Cloud9.
+1) Open `server.js` and start the app.
 
-2) Alternatively you can launch the app from the Terminal:
+2) Alternatively you can launch the app from the Terminal (if mongod is running):
 
     $ node server.js
 

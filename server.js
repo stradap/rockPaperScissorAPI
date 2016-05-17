@@ -38,7 +38,8 @@ var upload = multer({
 	storage: storage
 }).single('champFile');
 
-//
+/*Receives the championship data and computes it to identify the winner. The first and second place are
+stored into a database with their respective scores. Returns the winner of the championship.*/
 api.post('/api/championship/new', function(req, res) {
 	upload(req, res, function(err) {
 		if (err) {
@@ -73,7 +74,7 @@ api.post('/api/championship/result', function(req, res) {
 	}
 });
 
-//Retrieves the top players of all championships. Returns the list of player names based on the count provided. By default 10
+/*Retrieves the top players of all championships. Returns the list of player names based on the count provided. By default 10*/
 api.get('/api/championship/top/', function(req, res) {
 	var count = 10;
 	if (req.query.count) {
@@ -91,9 +92,21 @@ api.get('/api/championship/top/', function(req, res) {
 	});
 });
 
+/*Delete all the records*/
+
+api.get('/api/championship/deleteAll/', function(req, res) {
+	var result = algorithm.deleteAll(plGame);
+	result.then(function(data) {
+		var result = data;
+		res.send(result);
+	});
+})
+
 api.get('/', function(req, res) {
-	res.send('welcome to API.... here is a list of available methods : ');
+	res.send('Welcome to the API.... here is a list of available methods : 1) POST -> api/championship/result". 2) GET -> api/championship/top. 3) POST api/championship/new.');
 });
+
+
 
 //Start the API process
 api.listen(port, function() {

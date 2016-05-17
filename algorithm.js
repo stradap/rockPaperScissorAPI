@@ -202,20 +202,31 @@
 				}
 			});
 		},
+		deleteAll: function(plGame) {
+			return plGame.remove({}, function(err) {
+				if (err) {
+					console.log(err);
+					return false;
+				}
+				else {
+					console.log('success');
+					return true;
+				}
+			});
+		},
 		getTop: function(counter, plGame) {
 			return plGame
 				.find({})
-				.select({'namePlayer':1, '_id':0})
+				.select({
+					'namePlayer': 1,
+					'_id': 0
+				})
 				.lean()
 				.sort({
 					score: -1
 				})
 				.limit(counter)
 				.exec(function(err, users) {
-					// users = users.map(function(user) {
-					// 	return user.namePlayer;
-
-					// });
 					if (err) {
 						throw err;
 					}
@@ -224,7 +235,7 @@
 							console.log('no data');
 						}
 						else {
-							
+
 							console.log(users);
 							return users;
 						}
