@@ -36,7 +36,7 @@ var storage = multer.diskStorage({
 });
 var upload = multer({
 	storage: storage
-}).single('champFile');
+}).single('file');
 
 /*Receives the championship data and computes it to identify the winner. The first and second place are
 stored into a database with their respective scores. Returns the winner of the championship.*/
@@ -49,7 +49,11 @@ api.post('/api/championship/new', function(req, res) {
 		var data = algorithm.championship(result);
 		var firstSecond = data.split(",");
 		var save = algorithm.saveHistory(data, plGame = require("./models/playerModel"));
-		res.end("The winner of the tournament is: " + firstSecond[0] + "," + firstSecond[1] + " and all the data was storage");
+		var winnerOfTournament = firstSecond[0] + "," + firstSecond[1];
+		var result = {
+			winner: winnerOfTournament
+		};
+		res.send(result);
 	});
 });
 
