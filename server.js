@@ -45,15 +45,20 @@ api.post('/api/championship/new', function(req, res) {
 		if (err) {
 			return res.end("Error uploading file.");
 		}
-		var result = algorithm.extractGames(req.file.path);
-		var data = algorithm.championship(result);
-		var firstSecond = data.split(",");
-		var save = algorithm.saveHistory(data, plGame = require("./models/playerModel"));
-		var winnerOfTournament = firstSecond[0] + "," + firstSecond[1];
-		var result = {
-			winner: winnerOfTournament
-		};
-		res.send(result);
+		if (req.file.path) {
+			var result = algorithm.extractGames(req.file.path);
+			var data = algorithm.championship(result);
+			var firstSecond = data.split(",");
+			var save = algorithm.saveHistory(data, plGame = require("./models/playerModel"));
+			var winnerOfTournament = firstSecond[0] + "," + firstSecond[1];
+			var result = {
+				winner: winnerOfTournament
+			};
+			res.send(result);
+		}
+		else {
+			return res.end("Error uploading file.");
+		}
 	});
 });
 
