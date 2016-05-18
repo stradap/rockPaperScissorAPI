@@ -16,5 +16,5 @@ Once the server is running, open the project in the shape of 'https://projectnam
 2) GET -> api/championship/top.
 3) POST api/championship/new.
 
-In case of problems with mongod follow this steps 
+In case of problems with mongodb follow this steps for run cloud9
 https://community.c9.io/t/setting-up-mongodb/1717
