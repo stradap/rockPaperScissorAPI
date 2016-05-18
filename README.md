@@ -5,7 +5,7 @@ This API implement the Rock, Paper, Scissors game.
 
 1) Open `server.js` and start the app.
 
-2) Alternatively you can launch the app from the Terminal (mongod need to be running!):
+2) Alternatively you can launch the app from the Terminal (mongod need to be running):
 
     $ node server.js
 
@@ -16,3 +16,5 @@ Once the server is running, open the project in the shape of 'https://projectnam
 2) GET -> api/championship/top.
 3) POST api/championship/new.
 
+In case of problems with mongod follow this steps 
+https://community.c9.io/t/setting-up-mongodb/1717
