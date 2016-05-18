@@ -5,7 +5,7 @@ This API implement the Rock, Paper, Scissors game.
 
 1) Open `server.js` and start the app.
 
-2) Alternatively you can launch the app from the Terminal (if mongod is running):
+2) Alternatively you can launch the app from the Terminal (mongod need to be running!):
 
     $ node server.js
 
