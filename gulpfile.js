@@ -14,5 +14,4 @@ gulp.task('default',function() {
     .on('restart', function () {
         console.log('Restarting srv.js on PORT: ' + port);
     });
-    
 });

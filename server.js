@@ -96,7 +96,9 @@ api.get('/api/championship/top/', function(req, res) {
 			return user.namePlayer;
 
 		});
-		var result = data;
+		var result = {
+			players: data
+		};
 		res.send(result);
 	});
 });
