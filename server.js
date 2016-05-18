@@ -76,10 +76,16 @@ api.post('/api/championship/result', function(req, res) {
 	}
 	if (firstWinner && secondWinner) {
 		algorithm.saveToHistory(firstWinner, secondWinner, plGame);
-		res.end("success");
+		var result = {
+			status: 'success'
+		};
+		res.send(result);
 	}
 	else {
-		res.end("fail");
+		var result = {
+			status: 'fail'
+		};
+		res.send(result);
 	}
 });
 
