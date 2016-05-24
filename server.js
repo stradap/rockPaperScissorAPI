@@ -1,7 +1,9 @@
 var express = require('express'),
 	mongoose = require('mongoose'),
 	bodyParser = require('body-parser'),
-	db = mongoose.connect('mongodb://127.0.0.1/chmpAPI'),
+	//db = mongoose.connect('mongodb://127.0.0.1/chmpAPI'),
+	db = mongoose.connect('mongodb://strada:password1@ds025752.mlab.com:25752/chmpapi'),
+	
 	champion = require('./models/championModel'),
 	plGame = require("./models/playerModel"),
 	hst = require("./models/historyModel"),

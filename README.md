@@ -17,4 +17,9 @@ Once the server is running, open the project in the shape of 'https://projectnam
 3) POST api/championship/new.
 
 In case of problems with mongodb follow this steps for run cloud9
+First delete the data folder then run this commands...
+1) $ echo 'mongod --bind_ip=$IP --dbpath=data --nojournal --rest "$@"' > mongod
+2) ./mongod
 https://community.c9.io/t/setting-up-mongodb/1717
+
+I modified the database connection for avoid issues with the free service of cloud9...

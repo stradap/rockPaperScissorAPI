@@ -11,6 +11,7 @@
     "express": "*",
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.0.7",
+    "jshashtable": "^0.1.0",
     "mongoose": "^4.4.16",
     "multer": "^1.1.0",
     "socket.io": "~0.9.14"
